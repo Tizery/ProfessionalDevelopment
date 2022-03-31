@@ -14,14 +14,19 @@ import com.example.professionaldevelopment.model.data.DataModel
 import com.example.professionaldevelopment.presenter.Presenter
 import com.example.professionaldevelopment.view.base.BaseActivity
 import com.example.professionaldevelopment.view.base.View
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 
-class MainActivity : BaseActivity<AppState>() {
+class MainActivity : BaseActivity<AppState, MainInteractor>() {
 
+    @Inject
+    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+    override lateinit var model: MainViewModel
     private lateinit var binding: ActivityMainBinding
-    override val model: MainViewModel by lazy {
+    /*override val model: MainViewModel by lazy {
         ViewModelProvider.NewInstanceFactory().create(MainViewModel::class.java)
-    }
+    }*/
     private val observer = Observer<AppState> { renderData(it) }
     private var adapter: MainAdapter? = null
     private val onListItemClickListener: MainAdapter.OnListItemClickListener =
@@ -32,15 +37,20 @@ class MainActivity : BaseActivity<AppState>() {
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        model = viewModelFactory.create(MainViewModel::class.java)
+
+
         binding.searchFab.setOnClickListener {
             val searchDialogFragment = SearchDialogFragment.newInstance()
             searchDialogFragment.setOnSearchClickListener(object :
                 SearchDialogFragment.OnSearchClickListener {
                 override fun onClick(searchWord: String) {
-                    model.getData(searchWord, true).observe(this@MainActivity, observer)
+                    model.subscribe().observe(this@MainActivity, Observer<AppState> {
+                        renderData(it) })
                 }
             })
             searchDialogFragment.show(supportFragmentManager, BOTTOM_SHEET_FRAGMENT_DIALOG_TAG)
@@ -86,7 +96,8 @@ class MainActivity : BaseActivity<AppState>() {
         showViewError()
         binding.errorTextview.text = error ?: getString(R.string.undefined_error)
         binding.reloadButton.setOnClickListener {
-            model.getData("Greetings", true).observe(this, observer)
+            /*model.getData("Greetings", true).observe(this, observer)*/
+            model.getData("Greetings", true)
         }
     }
 
