@@ -11,7 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class SearchDialogFragment : BottomSheetDialogFragment() {
 
-    private var _binding:FragmentSearchDialogBinding? = null
+    private var _binding: FragmentSearchDialogBinding? = null
     private val binding get() = _binding!!
     private var onSearchClickListener: OnSearchClickListener? = null
 
