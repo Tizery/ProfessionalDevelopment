@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.Toast
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.professionaldevelopment.R
 import com.example.professionaldevelopment.databinding.ActivityMainBinding
@@ -12,12 +14,20 @@ import com.example.professionaldevelopment.model.data.DataModel
 import com.example.professionaldevelopment.presenter.Presenter
 import com.example.professionaldevelopment.view.base.BaseActivity
 import com.example.professionaldevelopment.view.base.View
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 
-class MainActivity : BaseActivity<AppState>() {
+class MainActivity : BaseActivity<AppState, MainInteractor>() {
 
+    @Inject
+    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+    override lateinit var model: MainViewModel
     private lateinit var binding: ActivityMainBinding
-
+    /*override val model: MainViewModel by lazy {
+        ViewModelProvider.NewInstanceFactory().create(MainViewModel::class.java)
+    }*/
+    private val observer = Observer<AppState> { renderData(it) }
     private var adapter: MainAdapter? = null
     private val onListItemClickListener: MainAdapter.OnListItemClickListener =
         object : MainAdapter.OnListItemClickListener {
@@ -26,20 +36,21 @@ class MainActivity : BaseActivity<AppState>() {
             }
         }
 
-    override fun createPresenter(): Presenter<AppState, View> {
-        return MainPresenterImpl()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        model = viewModelFactory.create(MainViewModel::class.java)
+
+
         binding.searchFab.setOnClickListener {
             val searchDialogFragment = SearchDialogFragment.newInstance()
             searchDialogFragment.setOnSearchClickListener(object :
                 SearchDialogFragment.OnSearchClickListener {
                 override fun onClick(searchWord: String) {
-                    presenter.getData(searchWord, true)
+                    model.subscribe().observe(this@MainActivity, Observer<AppState> {
+                        renderData(it) })
                 }
             })
             searchDialogFragment.show(supportFragmentManager, BOTTOM_SHEET_FRAGMENT_DIALOG_TAG)
@@ -49,8 +60,8 @@ class MainActivity : BaseActivity<AppState>() {
     override fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
-                val dataModel = appState.data
-                if (dataModel == null || dataModel.isEmpty()) {
+                val data = appState.data
+                if (data == null || data.isEmpty()) {
                     showErrorScreen(getString(R.string.empty_server_response_on_success))
                 } else {
                     showViewSuccess()
@@ -58,9 +69,9 @@ class MainActivity : BaseActivity<AppState>() {
                         binding.mainActivityRecyclerview.layoutManager =
                             LinearLayoutManager(applicationContext)
                         binding.mainActivityRecyclerview.adapter =
-                            MainAdapter(onListItemClickListener, dataModel)
+                            MainAdapter(onListItemClickListener, data)
                     } else {
-                        adapter!!.setData(dataModel)
+                        adapter!!.setData(data)
                     }
                 }
             }
@@ -85,7 +96,8 @@ class MainActivity : BaseActivity<AppState>() {
         showViewError()
         binding.errorTextview.text = error ?: getString(R.string.undefined_error)
         binding.reloadButton.setOnClickListener {
-            presenter.getData("Greetings", true)
+            /*model.getData("Greetings", true).observe(this, observer)*/
+            model.getData("Greetings", true)
         }
     }
 
