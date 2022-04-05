@@ -1,4 +1,4 @@
-package com.example.professionaldevelopment.model.datasource
+package com.example.professionaldevelopment.model.data.api
 
 import okhttp3.Interceptor
 import okhttp3.Response

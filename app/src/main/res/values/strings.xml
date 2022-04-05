@@ -7,4 +7,11 @@
     <string name="button_search">Поиск</string>
     <string name="search_hint">Введите слово</string>
     <string name="delete_description">X</string>
+    <string name="dialog_title_stub">Неопределенная ошибка</string>
+    <string name="dialog_button_cancel">Отмена</string>
+    <string name="dialog_title_device_is_offline">Отсутствует интернет соединение</string>
+    <string name="dialog_message_device_is_offline">Для использования приложения необходимо интернет соединение. Проверьте интернет</string>
+    <string name="error_stub">Ошибка</string>
+    <string name="dialog_title_sorry">Извините</string>
+
 </resources>
