@@ -5,6 +5,7 @@ import com.example.professionaldevelopment.model.data.AppState
 import com.example.professionaldevelopment.utils.parseSearchResults
 import com.example.professionaldevelopment.viewmodel.BaseViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -12,6 +13,7 @@ class MainViewModel(private val interactor: MainInteractor) :
     BaseViewModel<AppState>() {
 
     private val liveDataForViewToObserve: LiveData<AppState> = _mutableLiveData
+    private var job: Job? = null
 
     fun subscribe(): LiveData<AppState> {
         return liveDataForViewToObserve
@@ -19,8 +21,8 @@ class MainViewModel(private val interactor: MainInteractor) :
 
     override fun getData(word: String, isOnline: Boolean) {
         _mutableLiveData.value = AppState.Loading(null)
-        cancelJob()
-        viewModelCoroutineScope.launch { startInteractor(word, isOnline) }
+        job?.cancel()
+        job = viewModelCoroutineScope.launch { startInteractor(word, isOnline) }
     }
 
     private suspend fun startInteractor(word: String, isOnline: Boolean) =
