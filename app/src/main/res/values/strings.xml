@@ -13,5 +13,6 @@
     <string name="dialog_message_device_is_offline">Для использования приложения необходимо интернет соединение. Проверьте интернет</string>
     <string name="error_stub">Ошибка</string>
     <string name="dialog_title_sorry">Извините</string>
+    <string name="menu_title_history">История</string>
 
 </resources>

@@ -13,6 +13,7 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
 
     private var _binding: FragmentSearchDialogBinding? = null
     private val binding get() = _binding!!
+
     private var onSearchClickListener: OnSearchClickListener? = null
 
     private val textWatcher = object : TextWatcher {

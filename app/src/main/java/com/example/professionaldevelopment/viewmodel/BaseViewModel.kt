@@ -21,6 +21,10 @@ abstract class BaseViewModel<T : AppState>(
         viewModelCoroutineScope.cancel()
     }
 
+    protected fun cancelJob() {
+        viewModelCoroutineScope.coroutineContext.cancelChildren()
+    }
+
     abstract fun getData(word: String, isOnline: Boolean)
 
     abstract fun handleError(error: Throwable)
