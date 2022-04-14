@@ -21,13 +21,18 @@ android {
     buildFeatures {
         viewBinding = true
     }
-
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+    /*buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }*/
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -40,11 +45,20 @@ android {
 
 dependencies {
 
+    //Modules
+    implementation(project(":core"))
+    implementation(project(":historyscreen"))
+    implementation(project(":model"))
+    implementation(project(":repository"))
+    implementation(project(":utils"))
+
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.APP_COMPAT)
     implementation(Dependencies.MATERIAL)
     implementation(Dependencies.CONSTRAINT_LAYOUT)
     implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
+    implementation(Dependencies.COROUTINES_CORE)
+    implementation(Dependencies.COROUTINES_ANDROID)
     //Retrofit 2
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.CONVERTER_GSON)
@@ -57,6 +71,7 @@ dependencies {
     implementation(Dependencies.KOIN_CORE)
     implementation(Dependencies.KOIN_ANDROID)
     implementation(Dependencies.KOIN_ANDROID_COMPAT)
+    /*implementation(Dependencies.KOIN_ANDROID_VIEWMODEL)*/
     //Picasso
     implementation(Dependencies.PICASSO)
     //Glide

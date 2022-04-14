@@ -15,6 +15,13 @@ object Dependencies {
     private const val SWIPE_REFRESH_LAYOUT_VERSION="1.1.0"
     const val SWIPE_REFRESH_LAYOUT="androidx.swiperefreshlayout:swiperefreshlayout:${SWIPE_REFRESH_LAYOUT_VERSION}"
 
+    //Coroutines
+    private const val COROUTINES_CORE_VERSION = "1.4.3"
+    const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${COROUTINES_CORE_VERSION}"
+
+    private const val COROUTINES_ANDROID_VERSION = "1.4.3"
+    const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${COROUTINES_ANDROID_VERSION}"
+
     //Retrofit2
     private const val RETROFIT_VERSION = "2.6.0"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
@@ -43,6 +50,9 @@ object Dependencies {
 
     private const val KOIN_ANDROID_VERSION = "3.1.2"
     const val KOIN_ANDROID = "io.insert-koin:koin-android:${KOIN_ANDROID_VERSION}"
+
+    /*private const val KOIN_ANDROID_VIEWMODEL_VERSION = "2.1.6"
+    const val KOIN_ANDROID_VIEWMODEL = "org.koin:koin-android-viewmodel:${KOIN_ANDROID_VIEWMODEL_VERSION}"*/
 
     private const val KOIN_ANDROID_COMPAT_VERSION = "3.1.2"
     const val KOIN_ANDROID_COMPAT =

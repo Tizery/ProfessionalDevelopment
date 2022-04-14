@@ -1,9 +1,9 @@
 package com.example.professionaldevelopment.view.main
 
 import androidx.lifecycle.LiveData
-import com.example.professionaldevelopment.model.data.AppState
 import com.example.professionaldevelopment.utils.parseOnlineSearchResults
-import com.example.professionaldevelopment.viewmodel.BaseViewModel
+import com.example.core.viewmodel.BaseViewModel
+import com.example.model.data.AppState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

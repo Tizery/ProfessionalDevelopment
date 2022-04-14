@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    //Modules
+    implementation(project(":model"))
+
+    implementation(Dependencies.CORE_KTX)
+    implementation(Dependencies.APP_COMPAT)
+    implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.RETROFIT)
+    implementation(Dependencies.RETROFIT2_KOTLIN_COROUTINES_ADAPTER)
+    implementation(Dependencies.CONVERTER_GSON)
+    implementation(Dependencies.OKHTTP3_LOGGING_INTERCEPTOR)
+    implementation(Dependencies.ROOM_KTX)
+    implementation(Dependencies.ROOM_RUNTIME)
+    implementation(Dependencies.ROOM_COMPILER)
+
+    testImplementation(Dependencies.JUNIT)
+    androidTestImplementation(Dependencies.TEST_EXT_JUNIT)
+    androidTestImplementation(Dependencies.TEST_ESPRESSO_CORE)
+}
