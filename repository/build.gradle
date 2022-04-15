@@ -47,7 +47,7 @@ dependencies {
     implementation(Dependencies.OKHTTP3_LOGGING_INTERCEPTOR)
     implementation(Dependencies.ROOM_KTX)
     implementation(Dependencies.ROOM_RUNTIME)
-    implementation(Dependencies.ROOM_COMPILER)
+    kapt(Dependencies.ROOM_COMPILER)
 
     testImplementation(Dependencies.JUNIT)
     androidTestImplementation(Dependencies.TEST_EXT_JUNIT)
