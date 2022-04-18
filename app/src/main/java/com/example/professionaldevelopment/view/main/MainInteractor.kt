@@ -1,10 +1,11 @@
 package com.example.professionaldevelopment.view.main
 
-import com.example.professionaldevelopment.model.data.AppState
-import com.example.professionaldevelopment.model.data.DataModel
-import com.example.professionaldevelopment.model.repository.Repository
-import com.example.professionaldevelopment.model.repository.RepositoryLocal
-import com.example.professionaldevelopment.viewmodel.Interactor
+
+import com.example.core.viewmodel.Interactor
+import com.example.model.data.AppState
+import com.example.model.data.DataModel
+import com.example.repository.Repository
+import com.example.repository.RepositoryLocal
 
 class MainInteractor(
     private val repositoryRemote: Repository<List<DataModel>>,

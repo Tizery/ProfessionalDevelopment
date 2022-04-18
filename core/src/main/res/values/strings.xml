@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">core</string>
+    <string name="error_stub">Ошибка</string>
+    <string name="dialog_title_sorry">Извините</string>
+    <string name="empty_server_response_on_success">Пустой ответ от сервера</string>
+    <string name="dialog_title_device_is_offline">Отсутствует интернет соединение</string>
+    <string name="dialog_message_device_is_offline">Для использования приложения необходимо интернет соединение. Проверьте интернет</string>
+</resources>

@@ -5,19 +5,16 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.core.BaseActivity
+import com.example.historyscreen.view.history.HistoryActivity
+import com.example.model.data.AppState
+import com.example.model.data.DataModel
 import com.example.professionaldevelopment.R
 import com.example.professionaldevelopment.databinding.ActivityMainBinding
-import com.example.professionaldevelopment.model.data.AppState
-import com.example.professionaldevelopment.model.data.DataModel
 import com.example.professionaldevelopment.utils.convertMeaningsToString
-import com.example.professionaldevelopment.utils.isOnline
-import com.example.professionaldevelopment.view.base.BaseActivity
 import com.example.professionaldevelopment.view.descriptionscreen.DescriptionActivity
-import com.example.professionaldevelopment.view.history.HistoryActivity
+import com.example.utils.network.isOnline
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG = "74a54328-5d62-46bf-ab6b-cbf5fgt0-092395"
@@ -41,7 +38,7 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
                         this@MainActivity,
                         data.text!!,
                         convertMeaningsToString(data.meanings!!),
-                        data.meanings[0].imageUrl
+                        data.meanings!![0].imageUrl
                     )
                 )
             }

@@ -1,18 +1,13 @@
 package com.example.professionaldevelopment.di
 
 import androidx.room.Room
-import com.example.professionaldevelopment.model.data.DataModel
-import com.example.professionaldevelopment.model.datasource.RetrofitImpl
-import com.example.professionaldevelopment.model.datasource.RoomDataBaseImpl
-import com.example.professionaldevelopment.model.repository.Repository
-import com.example.professionaldevelopment.model.repository.RepositoryImpl
-import com.example.professionaldevelopment.model.repository.RepositoryImplementationLocal
-import com.example.professionaldevelopment.model.repository.RepositoryLocal
-import com.example.professionaldevelopment.room.HistoryDataBase
-import com.example.professionaldevelopment.view.history.HistoryInteractor
-import com.example.professionaldevelopment.view.history.HistoryViewModel
+import com.example.historyscreen.view.history.HistoryInteractor
+import com.example.historyscreen.view.history.HistoryViewModel
+import com.example.model.data.DataModel
 import com.example.professionaldevelopment.view.main.MainInteractor
 import com.example.professionaldevelopment.view.main.MainViewModel
+import com.example.repository.*
+import com.example.repository.room.HistoryDataBase
 import org.koin.dsl.module
 
 val application = module {

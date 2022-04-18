@@ -1,9 +1,10 @@
 package com.example.professionaldevelopment.utils
 
-import com.example.professionaldevelopment.model.data.AppState
-import com.example.professionaldevelopment.model.data.DataModel
-import com.example.professionaldevelopment.model.data.Meanings
-import com.example.professionaldevelopment.room.HistoryEntity
+import com.example.model.data.AppState
+import com.example.model.data.DataModel
+import com.example.model.data.Meanings
+import com.example.repository.room.HistoryEntity
+
 
 fun parseOnlineSearchResults(appState: AppState): AppState {
     return AppState.Success(mapResult(appState, true))
@@ -48,8 +49,8 @@ private fun getSuccessResultData(
 private fun parseOnlineResult(dataModel: DataModel, newDataModels: ArrayList<DataModel>) {
     if (!dataModel.text.isNullOrBlank() && !dataModel.meanings.isNullOrEmpty()) {
         val newMeanings = arrayListOf<Meanings>()
-        for (meaning in dataModel.meanings) {
-            if (meaning.translation != null && !meaning.translation.translation.isNullOrBlank()) {
+        for (meaning in dataModel.meanings!!) {
+            if (meaning.translation != null && !meaning.translation!!.translation.isNullOrBlank()) {
                 newMeanings.add(Meanings(meaning.translation, meaning.imageUrl))
             }
         }
