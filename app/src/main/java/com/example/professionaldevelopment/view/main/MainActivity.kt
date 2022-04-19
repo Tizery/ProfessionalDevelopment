@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.lifecycle.Observer
 import com.example.core.BaseActivity
 import com.example.historyscreen.view.history.HistoryActivity
 import com.example.model.data.AppState
@@ -15,7 +14,7 @@ import com.example.professionaldevelopment.databinding.ActivityMainBinding
 import com.example.professionaldevelopment.utils.convertMeaningsToString
 import com.example.professionaldevelopment.view.descriptionscreen.DescriptionActivity
 import com.example.utils.network.isOnline
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.scope.createScope
 
 private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG = "74a54328-5d62-46bf-ab6b-cbf5fgt0-092395"
 
@@ -87,9 +86,9 @@ class MainActivity : BaseActivity<AppState, MainInteractor>() {
         if (binding.mainActivityRecyclerview.adapter != null) {
             throw IllegalStateException("The ViewModel should be initialised first")
         }
-        val viewModel: MainViewModel by viewModel()
+        val viewModel: MainViewModel by createScope().inject()
         model = viewModel
-        model.subscribe().observe(this@MainActivity, Observer<AppState> { renderData(it) })
+        model.subscribe().observe(this@MainActivity,{ renderData(it) })
     }
 
     private fun initViews() {
