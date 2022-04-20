@@ -51,8 +51,8 @@ object Dependencies {
     private const val KOIN_ANDROID_VERSION = "3.1.2"
     const val KOIN_ANDROID = "io.insert-koin:koin-android:${KOIN_ANDROID_VERSION}"
 
-    /*private const val KOIN_ANDROID_VIEWMODEL_VERSION = "2.1.6"
-    const val KOIN_ANDROID_VIEWMODEL = "org.koin:koin-android-viewmodel:${KOIN_ANDROID_VIEWMODEL_VERSION}"*/
+    private const val KOIN_ANDROID_VIEWMODEL_VERSION = "2.1.6"
+    const val KOIN_ANDROID_VIEWMODEL = "org.koin:koin-android-viewmodel:${KOIN_ANDROID_VIEWMODEL_VERSION}"
 
     private const val KOIN_ANDROID_COMPAT_VERSION = "3.1.2"
     const val KOIN_ANDROID_COMPAT =
@@ -82,6 +82,10 @@ object Dependencies {
 
     private const val ROOM_KTX_VERSION = "2.4.2"
     const val ROOM_KTX = "androidx.room:room-ktx:${ROOM_KTX_VERSION}"
+
+    //SplashScreen
+    private const val SPLASH_SCREEN_VERSION = "1.0.0-beta02"
+    const val SPLASH_SCREEN = "androidx.core:core-splashscreen:${SPLASH_SCREEN_VERSION}"
 
     //Test
     private const val JUNIT_VERSION = "4.+"
