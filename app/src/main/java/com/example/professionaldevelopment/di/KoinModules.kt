@@ -25,14 +25,14 @@ val application = module {
 
 val mainScreen = module {
     scope(named<MainActivity>()) {
-        scoped { MainInteractor(get(), get()) }
-        viewModel { MainViewModel(get()) }
+        scoped { MainInteractor(repositoryRemote = get(), repositoryLocal = get()) }
+        viewModel { MainViewModel(interactor = get()) }
     }
 }
 
 val historyScreen = module {
     scope(named<HistoryActivity>()) {
-        scoped { HistoryInteractor(get(), get()) }
-        viewModel { HistoryViewModel(get()) }
+        scoped { HistoryInteractor(repositoryRemote = get(), repositoryLocal = get()) }
+        viewModel { HistoryViewModel(interactor = get()) }
     }
 }
