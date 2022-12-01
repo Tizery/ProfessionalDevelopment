@@ -20,6 +20,8 @@
         <entry key="..\:/Users/79232/AndroidStudioProjects/ProfessionalDevelopment/app/src/main/res/menu/history_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/79232/AndroidStudioProjects/ProfessionalDevelopment/core/src/main/res/layout/loading_layout.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/79232/AndroidStudioProjects/ProfessionalDevelopment/historyscreen/src/main/res/layout/activity_history.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79232/AndroidStudioProjects/ProfessionalDevelopment/historyscreen/src/main/res/layout/activity_history_recyclerview_item.xml" value="0.1" />
+        <entry key="..\:/Users/79232/AndroidStudioProjects/ProfessionalDevelopment/historyscreen/src/main/res/layout/loading_layout.xml" value="0.1" />
       </map>
     </option>
   </component>
