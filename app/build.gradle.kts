@@ -82,6 +82,8 @@ dependencies {
     implementation(Dependencies.ROOM_RUNTIME)
     kapt(Dependencies.ROOM_COMPILER)
     implementation(Dependencies.ROOM_KTX)
+    //SplashScreen
+    implementation(Dependencies.SPLASH_SCREEN)
 
     testImplementation(Dependencies.JUNIT)
     androidTestImplementation(Dependencies.TEST_EXT_JUNIT)

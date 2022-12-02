@@ -80,6 +80,10 @@ object Dependencies {
     private const val ROOM_KTX_VERSION = "2.4.2"
     const val ROOM_KTX = "androidx.room:room-ktx:${ROOM_KTX_VERSION}"
 
+    //SplashScreen
+    private const val SPLASH_SCREEN_VERSION = "1.0.0-beta02"
+    const val SPLASH_SCREEN = "androidx.core:core-splashscreen:${SPLASH_SCREEN_VERSION}"
+
     //Test
     private const val JUNIT_VERSION = "4.+"
     const val JUNIT = "junit:junit:${JUNIT_VERSION}"
