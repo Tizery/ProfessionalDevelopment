@@ -71,7 +71,6 @@ dependencies {
     implementation(Dependencies.KOIN_CORE)
     implementation(Dependencies.KOIN_ANDROID)
     implementation(Dependencies.KOIN_ANDROID_COMPAT)
-    kapt(Dependencies.KOIN_ANDROID_VIEWMODEL)
     //Picasso
     implementation(Dependencies.PICASSO)
     //Glide

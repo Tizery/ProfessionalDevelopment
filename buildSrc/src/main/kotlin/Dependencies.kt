@@ -51,9 +51,6 @@ object Dependencies {
     private const val KOIN_ANDROID_VERSION = "3.1.2"
     const val KOIN_ANDROID = "io.insert-koin:koin-android:${KOIN_ANDROID_VERSION}"
 
-    private const val KOIN_ANDROID_VIEWMODEL_VERSION = "2.1.6"
-    const val KOIN_ANDROID_VIEWMODEL = "org.koin:koin-android-viewmodel:${KOIN_ANDROID_VIEWMODEL_VERSION}"
-
     private const val KOIN_ANDROID_COMPAT_VERSION = "3.1.2"
     const val KOIN_ANDROID_COMPAT =
         "io.insert-koin:koin-android-compat:${KOIN_ANDROID_COMPAT_VERSION}"
